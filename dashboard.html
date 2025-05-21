@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tracksy - Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome, <span id="chefName"></span>!</h1>
+    <button id="logoutBtn" class="btn logout" type="button">Logout</button>
+  </header>
+
+  <main class="container">
+    <form id="recordForm" novalidate>
+      <div class="record">
+        <label for="sauceSelect">Sauce:</label>
+        <select id="sauceSelect" name="sauce" required>
+          <option value="">Select sauce</option>
+          <option value="Butter Sauce">Butter Sauce</option>
+          <option value="Curry Sauce">Curry Sauce</option>
+          <option value="Masala Sauce">Masala Sauce</option>
+          <option value="Chilly Sauce">Chilly Sauce</option>
+          <!-- Add more as needed -->
+        </select>
+
+        <label for="cookingTemp">Cooking Temp (°C):</label>
+        <input type="number" id="cookingTemp" name="cookingTemp" min="0" required />
+
+        <label for="coolingTemp">Cooling Temp (°C):</label>
+        <input type="number" id="coolingTemp" name="coolingTemp" min="0" required />
+
+        <label for="coolingTimeFrom">Cooling Time From:</label>
+        <input type="time" id="coolingTimeFrom" name="coolingTimeFrom" required />
+
+        <label for="coolingTimeTo">Cooling Time To:</label>
+        <input type="time" id="coolingTimeTo" name="coolingTimeTo" required />
+      </div>
+
+      <p id="statusMsg" aria-live="polite"></p>
+
+      <button type="button" id="addMore" class="btn add-more">Add Another Record</button>
+      <button type="submit" id="submitBtn" class="btn submit">Submit</button>
+    </form>
+  </main>
+
+  <!-- Modal for confirmation -->
+  <div id="modalOverlay" class="modal-overlay" aria-hidden="true" style="display:none;">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalText">
+      <p id="modalText"></p>
+      <div class="modal-buttons">
+        <button id="modalConfirm" class="btn confirm" type="button">Confirm</button>
+        <button id="modalCancel" class="btn cancel" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
